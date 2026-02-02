@@ -28,7 +28,7 @@ Este projeto é um gerenciador de senhas baseado em linha de comando (CLI) que p
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/gerenciador-de-senhas.git
+git clone https://github.com/rodrigofemilio/gerenciador-de-senhas.git
 cd gerenciador-de-senhas
 ```
 
@@ -135,7 +135,7 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 ## Autor
 
-Desenvolvido por [Rodrigo Emilio]
+Desenvolvido por Rodrigo da Fonseca Emilio
 
 ---
 
