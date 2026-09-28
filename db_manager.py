@@ -108,3 +108,15 @@ def obter_salt():
     if data['salt']:
         return bytes.fromhex(data['salt'])
     return None
+
+
+def salvar_verificador(verificador):
+    """Salva um pequeno texto criptografado para validar a senha mestra."""
+    data = carregar_db()
+    data['verificador'] = verificador
+    salvar_db(data)
+
+
+def obter_verificador():
+    """Retorna o verificador, quando criado por versões recentes do aplicativo."""
+    return carregar_db().get('verificador')
