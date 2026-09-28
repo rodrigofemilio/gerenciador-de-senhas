@@ -4,7 +4,7 @@ Um gerenciador de senhas seguro e minimalista desenvolvido em Python, que utiliz
 
 ## Descrição
 
-Este projeto é um gerenciador de senhas baseado em linha de comando (CLI) que permite armazenar, buscar, atualizar e deletar senhas de forma segura. Todas as senhas são criptografadas utilizando a biblioteca `cryptography` com o algoritmo Fernet (AES-128 em modo CBC), e a chave de criptografia é derivada de uma senha mestra usando PBKDF2-HMAC-SHA256 com 100.000 iterações.
+Este projeto é um gerenciador de senhas desktop com uma interface gráfica simples e moderna. Ele permite armazenar, buscar, atualizar e deletar senhas de forma segura. Todas as senhas são criptografadas utilizando a biblioteca `cryptography` com o algoritmo Fernet, e a chave de criptografia é derivada de uma senha mestra usando PBKDF2-HMAC-SHA256.
 
 ## Funcionalidades
 
@@ -16,6 +16,8 @@ Este projeto é um gerenciador de senhas baseado em linha de comando (CLI) que p
 - **Atualizar senhas**: Modifique senhas e usuários existentes
 - **Deletar senhas**: Remova credenciais que não são mais necessárias
 - **Armazenamento local**: Dados salvos em arquivo JSON criptografado
+- **Interface gráfica**: Cofre visual com busca instantânea, detalhes e formulários
+- **Gerador de senhas**: Crie senhas aleatórias fortes diretamente no cadastro
 
 ## Tecnologias Utilizadas
 
@@ -58,22 +60,24 @@ pip install -r requirements.txt
 python main.py
 ```
 
-2. Na primeira execução, você será solicitado a criar uma **senha mestra**. **Não esqueça esta senha!** Ela é necessária para acessar todas as suas credenciais.
+2. A janela do Cofre será aberta. Na primeira execução, crie e confirme uma **senha mestra**. **Não esqueça esta senha!** Ela é necessária para acessar todas as suas credenciais.
 
-3. Após configurar a senha mestra, você terá acesso ao menu principal com as seguintes opções:
-   - **1**: Adicionar nova senha
-   - **2**: Buscar senha existente
-   - **3**: Listar todos os serviços cadastrados
-   - **4**: Atualizar senha existente
-   - **5**: Deletar senha
-   - **0**: Sair do programa
+3. Use **Nova credencial** para cadastrar um acesso. A tela principal permite pesquisar, visualizar, editar e excluir suas credenciais.
+
+Se preferir usar a interface clássica no terminal, execute:
+
+```bash
+python main.py --cli
+```
 
 ## Estrutura do Projeto
 
 ```
 gerenciador-de-senhas/
 ├── venv/                  # Ambiente virtual (não versionado)
-├── main.py               # Arquivo principal com interface CLI
+├── main.py               # Ponto de entrada (abre a interface gráfica)
+├── gui.py                # Interface gráfica desktop com Tkinter
+├── cli.py                # Interface alternativa de linha de comando
 ├── crypto_utils.py       # Funções de criptografia
 ├── db_manager.py         # Gerenciamento do banco de dados JSON
 ├── senhas.json          # Arquivo de dados (criado automaticamente, não versionado)
@@ -120,12 +124,12 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 
 ## Possíveis Melhorias Futuras
 
-- [ ] Gerador de senhas aleatórias fortes
+- [x] Gerador de senhas aleatórias fortes
 - [ ] Exportar/Importar backup criptografado
 - [ ] Busca parcial por nome de serviço
 - [ ] Indicador de força de senha
 - [ ] Copiar senha para clipboard automaticamente
-- [ ] Interface gráfica (GUI) com Tkinter ou PyQt
+- [x] Interface gráfica (GUI) com Tkinter
 - [ ] Categorização de senhas (trabalho, pessoal, etc.)
 - [ ] Histórico de alterações de senhas
 
